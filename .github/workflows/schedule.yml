@@ -1,0 +1,17 @@
+name: Scheduled Deploy
+
+# This action will trigger on a schedule
+on:
+  schedule:
+    # This is a CRON expression. This one runs at 00:00 UTC on September 15th.
+    # You can adjust this to your exact launch time.
+    # Note: GitHub Actions schedules can be slightly delayed.
+    - cron: '0 0 15 9 *'
+
+jobs:
+  build:
+    name: Trigger Netlify Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl the Netlify build hook
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/68b7ba0002e63ab665109fbc
