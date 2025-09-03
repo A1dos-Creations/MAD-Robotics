@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - 9/15/25</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; /* Prevents scrollbars */
+            /* Animated background color */
+            animation: background-color-animation 25s ease infinite;
+        }
+
+        @keyframes background-color-animation {
+            0% { background-color: #12121c; }
+            33% { background-color: #1c121a; }
+            66% { background-color: #121c1a; }
+            100% { background-color: #12121c; }
+        }
+
+        /* Grainy Texture Overlay - Increased grain */
+        .grainy-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="5" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.10"/></svg>');
+            z-index: 1; /* Above background, below content */
+        }
+
+        /* Animated Gradient Bubble - Made smaller */
+        .liquid-bubble {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 50vmax; /* Smaller bubble */
+            height: 50vmax; /* Smaller bubble */
+            background: linear-gradient(135deg, #ff007f, #00f2ff, #a200ff, #ff7f00);
+            background-size: 400% 400%;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.7;
+            animation: 
+                gradient-animation 20s ease infinite,
+                bubble-move 30s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes bubble-move {
+            0% { transform: translate(-50%, -50%) translate(-10vw, 15vh) rotate(0deg); }
+            25% { transform: translate(-50%, -50%) translate(20vw, -10vh) rotate(90deg); }
+            50% { transform: translate(-50%, -50%) translate(5vw, 25vh) rotate(180deg); }
+            75% { transform: translate(-50%, -50%) translate(-25vw, -5vh) rotate(270deg); }
+            100% { transform: translate(-50%, -50%) translate(-10vw, 15vh) rotate(360deg); }
+        }
+
+        /* Menu Panel Styling */
+        #menu-panel {
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(100%);
+        }
+
+        #menu-panel.is-open {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Backgrounds -->
+    <div class="liquid-bubble"></div>
+    <div class="grainy-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="relative h-screen w-full flex flex-col justify-center items-center p-4 z-10">
+        <!-- Countdown Timer -->
+        <div id="countdown" class="absolute top-8 md:top-12 text-white text-opacity-80">
+            <div class="flex items-center justify-center space-x-4 md:space-x-8 text-center">
+                <div>
+                    <span id="days" class="block text-4xl md:text-6xl font-black tracking-tighter">00</span>
+                    <span class="text-xs md:text-sm font-light tracking-widest uppercase">Days</span>
+                </div>
+                <span class="text-4xl md:text-6xl font-light opacity-50">:</span>
+                <div>
+                    <span id="hours" class="block text-4xl md:text-6xl font-black tracking-tighter">00</span>
+                    <span class="text-xs md:text-sm font-light tracking-widest uppercase">Hours</span>
+                </div>
+                <span class="text-4xl md:text-6xl font-light opacity-50">:</span>
+                <div>
+                    <span id="minutes" class="block text-4xl md:text-6xl font-black tracking-tighter">00</span>
+                    <span class="text-xs md:text-sm font-light tracking-widest uppercase">Minutes</span>
+                </div>
+                <span class="text-4xl md:text-6xl font-light opacity-50">:</span>
+                <div>
+                    <span id="seconds" class="block text-4xl md:text-6xl font-black tracking-tighter">00</span>
+                    <span class="text-xs md:text-sm font-light tracking-widest uppercase">Seconds</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white text-opacity-90 tracking-tighter" style="text-shadow: 0 4px 25px rgba(0,0,0,0.2);">
+                Coming Soon
+            </h1>
+            <p class="text-lg md:text-xl text-white text-opacity-80 mt-4">Something amazing is on the horizon.</p>
+        </div>
+
+        <button id="open-menu-btn" class="absolute bottom-10 bg-white bg-opacity-10 text-white font-medium py-3 px-6 rounded-lg backdrop-blur-md border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300 ease-in-out">
+            Find out more
+        </button>
+    </main>
+
+    <!-- Slide-up Menu Panel -->
+    <div id="menu-panel" class="fixed inset-0 bg-white bg-opacity-70 backdrop-blur-xl p-6 md:p-10 flex items-center justify-center z-20">
+        <div class="max-w-2xl w-full text-center relative bg-white bg-opacity-40 p-8 rounded-2xl shadow-2xl border border-white border-opacity-20">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What to Expect</h2>
+            <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                <!-- Replace this text with your website's description -->
+                We are MAD Robotics, and we are the creators of the Armbotic™- an all-in-one tool for your daily nuisances. Hate making coffee in the morning, but need it for the day? Have the Armbotic™ make it for you! This coming soon page is here because we are still working on crafting a unique and informative website for you. The website should be completed and public by September 15th, 2025.               
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const openBtn = document.getElementById('open-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const menuPanel = document.getElementById('menu-panel');
+
+        // Function to open the menu
+        const openMenu = () => {
+            menuPanel.classList.add('is-open');
+        };
+
+        // Function to close the menu
+        const closeMenu = () => {
+            menuPanel.classList.remove('is-open');
+        };
+
+        // Event Listeners
+        openBtn.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+
+        // Optional: Close menu when pressing the Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && menuPanel.classList.contains('is-open')) {
+                closeMenu();
+            }
+        });
+
+        // --- Countdown Timer Logic ---
+        const countdownDate = new Date("September 15, 2025 00:00:00").getTime();
+
+        const countdownFunction = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                // Optionally, you can change the "Coming Soon" text here
+                // document.querySelector('h1').innerText = "We're Live!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Add leading zeros
+            const format = (num) => (num < 10 ? '0' + num : num);
+
+            document.getElementById("days").innerText = format(days);
+            document.getElementById("hours").innerText = format(hours);
+            document.getElementById("minutes").innerText = format(minutes);
+            document.getElementById("seconds").innerText = format(seconds);
+
+        }, 1000);
+    </script>
+
+</body>
+</html>
+
