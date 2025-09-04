@@ -1,0 +1,27 @@
+name: Scheduled Netlify Deploy
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day.
+    # GitHub Actions schedules can sometimes be delayed, but this will run daily.
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the date
+        id: date-check
+        run: |
+          if [ $(date -u +'%Y-%m-%d') = '2025-09-05' ]; then
+            echo "Date matches. Triggering deploy."
+            echo "run_deploy=true" >> $GITHUB_OUTPUT
+          else
+            echo "Date does not match. Skipping deploy."
+            echo "run_deploy=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Trigger Netlify Deploy
+        if: steps.date-check.outputs.run_deploy == 'true'
+        run: curl -X POST -d '{}' ${{ secrets.NETLIFY_BUILD_HOOK }}
