@@ -25,6 +25,9 @@ The Armbotic is a state-of-the-art robotic assistant designed to integrate seaml
   <i>The website launch date is different than the ARMBOTIC™ Reveal/launch date.</i>
 </p>
 
+> [!NOTE]
+> We are still designing the main website, so it won't release until September 5th.
+
 # 🚀 The launches
 The MAD Robotics™ Armbotic™ website will launch officially on **September 5th at midnight** (PST).
 The Armbotic™ reveal stream is scheduled for **October 31st, 2025**. *Time is TBD*.
