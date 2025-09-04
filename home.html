@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD Robotics - The Future of Assistance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the dark theme, animations, and fonts */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        /* Gradient background for the home page */
+        .home-gradient {
+            background-color: #000000;
+            background-image: radial-gradient(circle at 50% 50%, rgba(88, 3, 252, 0.35) 0%, rgba(0,0,0,0) 50%);
+        }
+        
+        /* General page container styles */
+        .page-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        /* Glassmorphism effect for the header */
+        .header-glass {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Styling for navigation links */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #8A2BE2; /* A vibrant purple */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: #FFFFFF;
+        }
+        
+        .nav-link.active::after,
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Button styles and animations */
+        .cta-button {
+            transition: all 0.3s ease-in-out;
+            background: linear-gradient(90deg, #8A2BE2, #4B0082);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.8);
+        }
+        
+        .secondary-button {
+             transition: all 0.3s ease-in-out;
+             border-color: #8A2BE2;
+             color: #8A2BE2;
+        }
+
+        .secondary-button:hover {
+            transform: translateY(-3px);
+            background-color: rgba(138, 43, 226, 0.1);
+            color: white;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+        }
+
+        /* Scroll-triggered reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: opacity, transform;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Countdown timer styling */
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            width: 120px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header and Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 header-glass">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-wider"><span class="text-purple-400">M</span>A<span class="text-purple-400">D</span> ROBOTICS</h1>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" data-page="home" class="nav-link text-gray-300 active">Home</a>
+                <a href="#armbotic" data-page="armbotic" class="nav-link text-gray-300">ARMBOTIC</a>
+                <a href="#contact" data-page="contact" class="nav-link text-gray-300">About / Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <!-- Mobile menu can be added here -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page-container page home-gradient">
+            <div class="max-w-3xl mx-auto reveal">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4" style="text-shadow: 0 0 20px rgba(0,0,0,0.5);">Your Daily Nuisances, <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-600">Automated.</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">Introducing the ARMBOTIC module from MAD Robotics. The fast, efficient, robotic arm helper designed to seamlessly integrate into your life and handle the little things, so you can focus on the big ones.</p>
+                <div class="flex justify-center gap-4">
+                    <button data-page-target="armbotic" class="cta-button text-white font-semibold py-3 px-8 rounded-full">Discover ARMBOTIC</button>
+                    <button data-page-target="contact" class="secondary-button font-semibold py-3 px-8 rounded-full border-2">Contact Us</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARMBOTIC Page -->
+        <section id="armbotic" class="page-container page bg-black hidden">
+            <div class="max-w-4xl mx-auto">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">The Reveal is Coming</h2>
+                    <p class="text-gray-400 mb-12">An exclusive first look at the future of personal robotics.</p>
+                </div>
+                <!-- Countdown Timer -->
+                <div id="countdown" class="flex justify-center items-center space-x-2 md:space-x-6 mb-12 reveal" style="transition-delay: 200ms;">
+                    <div class="countdown-box">
+                        <p id="days" class="text-4xl md:text-5xl font-bold">00</p>
+                        <span class="text-sm text-gray-400">Days</span>
+                    </div>
+                    <div class="countdown-box">
+                        <p id="hours" class="text-4xl md:text-5xl font-bold">00</p>
+                        <span class="text-sm text-gray-400">Hours</span>
+                    </div>
+                    <div class="countdown-box">
+                        <p id="minutes" class="text-4xl md:text-5xl font-bold">00</p>
+                        <span class="text-sm text-gray-400">Minutes</span>
+                    </div>
+                    <div class="countdown-box">
+                        <p id="seconds" class="text-4xl md:text-5xl font-bold">00</p>
+                        <span class="text-sm text-gray-400">Seconds</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                     <div class="reveal" style="transition-delay: 400ms;">
+                        <h3 class="text-2xl font-semibold mb-3">The Armbotic Module</h3>
+                        <p class="text-gray-300 leading-relaxed">The Armbotic is a state-of-the-art robotic assistant designed to integrate seamlessly into your daily life. From organizing your workspace to assisting with complex tasks, its precision and speed redefine efficiency. Built with advanced AI and a sleek, minimalist design, it's not just a tool—it's your proactive partner in productivity.</p>
+                    </div>
+                    <div class="reveal" style="transition-delay: 600ms;">
+                        <h3 class="text-2xl font-semibold mb-3">Live Stream Unveiling</h3>
+                        <p class="text-gray-300 leading-relaxed">Join the founders of MAD Robotics™ for a special live stream event. We'll be unveiling the full capabilities of the Armbotic™, showcasing live demos, and answering your questions. Mark your calendars for an exclusive first look at the future of personal robotics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact/About Page -->
+        <section id="contact" class="page-container page bg-black hidden">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Innovating Everyday Life</h2>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        Founded by two high-schoolers attending Culver City Highschool. Dreaming of the possibilities, they decided to go all in. Milo, the 'M' in MAD Robotics™ is an avid 3D designer. Devin, the 'D' in MAD Robotics, is an avid coder and filmmaker. Devin creates all the software and promotional content for MAD Robotics™ and the Armbotic™ series.
+                    </p>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-semibold mt-12 mb-4">Get In Touch</h3>
+                    <p class="text-gray-300">Have questions, ideas, or just want to say hello? We'd love to hear from you.</p>
+                    <a href="mailto:support@madrobotics.site" class="text-purple-400 text-lg font-semibold mt-2 inline-block hover:text-purple-300 transition-colors">
+                        support@madrobotics.site
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="text-center py-6 text-gray-500 text-sm">
+        <p>&copy; <span id="year"></span> MAD Robotics. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const buttons = document.querySelectorAll('[data-page-target]');
+            const revealElements = document.querySelectorAll('.reveal');
+
+            // --- Page Navigation ---
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.add('hidden');
+                });
+                const activePage = document.getElementById(pageId);
+                if(activePage) {
+                    // Reset animations by removing the 'visible' class so they can play again
+                    activePage.querySelectorAll('.reveal').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                    
+                    activePage.classList.remove('hidden');
+                    // The global IntersectionObserver will re-trigger the animations for elements in view.
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.page === pageId);
+                });
+
+                // Smooth scroll to the top of the page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(link.dataset.page);
+                });
+            });
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(button.dataset.pageTarget);
+                });
+            });
+            
+            // --- Countdown Timer ---
+            const countdownDate = new Date(`October 31, ${new Date().getFullYear()} 00:00:00`).getTime();
+
+            const countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('countdown').innerHTML = '<p class="text-2xl font-bold">The reveal has happened!</p>';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+            }, 1000);
+
+            // --- Scroll Animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            function observeElements(elements) {
+                elements.forEach(el => observer.observe(el));
+            }
+            
+            observeElements(revealElements);
+
+            // --- Initial State ---
+            showPage('home'); // Show home page on load
+            
+            // --- Footer Year ---
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
+
