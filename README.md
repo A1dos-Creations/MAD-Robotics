@@ -82,5 +82,15 @@ Because we are two high-school students, we have a very limited ammount of money
   <img width="1131" height="157" alt="image" src="https://github.com/user-attachments/assets/b3180e6b-c150-4d0e-b9fa-efdb0d6a435f" />
 </p>
 
-## COMING SOON
-### Have a question to ask? Post it in the [issues tab!](https://github.com/A1dos-Creations/MADrobotics_Website/issues/new/choose)
+### Q: How are the ARMBOTIC™ arms usefull in our daily lives?
+A: ARMBOTIC™ units can perform a wide range of tasks, such as making coffee for you *(machine only)*, handing you tools, and holding stuff.
+<br>
+<br>
+### Q: Are the ARMBOTIC units safe for kids/Are the ARMBOTIC™ units safe to operate around kids?
+A: ARMBOTIC™ units are designed with several safety features, such as advanced obstacle detection; when the built-in LiDAR sensor finds a new object, the onboard AI will analyze the video feed from the camera and the 3D scene from the LiDAR camera to avoid the obstacle. If the AI deems a collision imminent, or there is no way to avoid said obstacle, it will stop all motors in the arm immediately. **Safety testing has yet to start.** It is **never** reccomended to leave a child unnatended around the ARMBOTIC™ due to unforseen safety issues.
+<br>
+<br>
+### Q: Is the video feed from the ARMBOTIC™ private?
+A: The video feed captured from the on-board camera is uploaded to our servers so our AI can analyze and identify objects/people/obstacles. The video is stored for up to 1 month to train our visual inteligence AI, but you can opt out of this at any time. Opting out of using your data to train our AI, the video is still uploaded to our servers, but stored for no more than 2 hours.
+<br>
+<br>
