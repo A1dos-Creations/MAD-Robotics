@@ -60,12 +60,15 @@ What goes into making the Armbotic™ modules?
 
 Because our company is run by two high-schoolers, Armbotic™ units take a while to manufacture. Making one Armbotic™ unit can take up to 1 month. We purchase everything from trusted sellers, such as Newegg, Arduino, RaspberryPi, and other notable sellers. For our prototypes/proof of concept units, we are using a RasperryPi and Arduino to control the unit. In the future, we will develop a custom board *(PCB)* that suits our robots beter. 
 
+> [!NOTE]
+> Want to learn more about the Armbotic and it's components? Nagivate [here](https://docs.google.com/document/d/10cxcd5gonl2ZcpaQUT0OXDmlVG_Po5Du4AjM8PCcGco/edit?usp=sharing)
+
 <br>
 
 <br>
 
 <p align="center">
-  <img width="1111" height="165" alt="image" src="https://github.com/user-attachments/assets/b322153b-bb7d-4d41-b808-87b4c908747c" />
+  <img width="1111" height="165" alt="image" src="https://github.com/user-attachments/assets/b322153b-bb7d-4d41-b808-87b4c908747c" /> // more information coming soon* \\
 </p>
 
 ## Are we a business?
